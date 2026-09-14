@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#b88c8b">
+<meta name="description" content="Biblioteca McB de prompts fotográficos para editar imágenes manteniendo tu identidad.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
+<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png?v=2">
+<title>Prompts Foto McB</title>
+<style>
+:root{--bg:#f8f3f1;--card:#fffdfc;--text:#342e2d;--muted:#756d6a;--rose:#b88c8b;--rose2:#ead9d5;--sage:#9eaa96;--sage2:#e6ebe1;--border:#e6dcd8;--shadow:0 10px 30px rgba(65,49,45,.08)}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+.app{max-width:780px;margin:auto;padding:18px 14px 40px}
+.hero{padding:20px 4px 14px}
+.brand{font-family:Georgia,serif;font-size:30px;line-height:1.05;margin:0}
+.sub{color:var(--muted);margin:7px 0 0}
+.search{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 85%,transparent);padding:10px 0 14px}
+.search input{width:100%;font-size:16px;border:1px solid var(--border);background:white;padding:14px 16px;border-radius:16px;outline:none}
+.search input:focus{border-color:var(--rose);box-shadow:0 0 0 3px var(--rose2)}
+.tip{background:var(--sage2);border:1px solid #d8e0d2;padding:14px 15px;border-radius:16px;margin-bottom:14px;font-size:14px}
+.grid{display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.head{width:100%;border:0;background:transparent;padding:16px;display:flex;gap:12px;text-align:left;align-items:flex-start;color:inherit}
+.emoji{font-size:25px}
+.meta{flex:1;min-width:0}
+.title{font-weight:800;font-size:17px}
+.use{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}
+.chev{color:var(--muted);font-size:20px}
+.body{padding:0 16px 16px}
+.hidden{display:none}
+textarea{width:100%;min-height:260px;resize:vertical;border:1px solid var(--border);border-radius:14px;background:#fff;padding:13px;font:15px/1.45 system-ui;color:var(--text)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+button.action{min-height:46px;border:0;border-radius:13px;padding:0 15px;font-weight:800;font-size:15px}
+.primary{background:var(--rose);color:white}
+.secondary{background:var(--sage2);color:var(--text)}
+.status{min-height:22px;margin:14px 2px;color:var(--muted);font-size:14px}
+.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:28px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}.card.open{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<main class="app">
+  <section class="hero">
+    <h1 class="brand">Prompts Foto McB</h1>
+    <p class="sub">Elige un estilo, abre el prompt y cópialo. Tu identidad siempre primero.</p>
+  </section>
+
+  <div class="search"><input id="search" type="search" placeholder="Buscar: viaje, noche, portada…" aria-label="Buscar prompt"></div>
+
+  <div class="tip"><strong>¿No sabes cuál usar?</strong> Si la foto ya te gusta pero algo falla, empieza por <b>Corrige problemas</b>. Si buscas un acabado concreto, elige uno de los otros estilos.</div>
+
+
+  <section class="card open" id="mother-card" style="margin-bottom:14px;">
+    <button class="head" id="mother-toggle" type="button" aria-expanded="false">
+      <span class="emoji">🧩</span>
+      <span class="meta">
+        <span class="title">Plantilla madre para nuevos estilos</span>
+        <span class="use">Sustituye [ESTILO DESEADO] por el acabado que quieras crear.</span>
+      </span>
+      <span class="chev">⌄</span>
+    </button>
+    <div class="body hidden" id="mother-body">
+      <p class="use" style="margin:0 0 8px;"><b>Plantilla completa</b></p>
+      <textarea id="mother-full" readonly aria-label="Plantilla madre completa">Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi apariencia física general.
+
+Mejora únicamente lo necesario en iluminación, exposición, color, contraste, profundidad, nitidez, composición y calidad fotográfica general.
+
+Aplica un acabado visual de [ESTILO DESEADO], manteniendo todo físicamente creíble y visualmente natural.
+
+Conserva la textura natural de la piel, poros, líneas de expresión e imperfecciones reales.
+
+Evita el exceso de retoque, la piel plástica, la sobresaturación, la iluminación irreal y cualquier resultado que parezca generado por IA.
+
+El resultado debe parecer una fotografía auténtica tomada por un profesional.</textarea>
+      <div class="actions">
+        <button type="button" class="action primary" data-copy-target="mother-full" data-copy-name="Plantilla madre completa">Copiar completa</button>
+      </div>
+      <p class="use" style="margin:16px 0 8px;"><b>Versión corta</b></p>
+      <textarea id="mother-short" readonly aria-label="Plantilla madre corta">Conserva exactamente mi identidad, rostro, cuerpo, ropa y expresión. No alteres mis facciones ni rejuvenezcas mi rostro. Mejora luz, exposición, color, contraste, profundidad, composición y nitidez. Aplica un acabado de [ESTILO DESEADO] de forma natural y creíble. Conserva la textura real de la piel y evita cualquier aspecto artificial o generado por IA.</textarea>
+      <div class="actions">
+        <button type="button" class="action secondary" data-copy-target="mother-short" data-copy-name="Plantilla madre corta">Copiar corta</button>
+      </div>
+      <div class="tip" style="margin-top:12px;margin-bottom:0;">
+        <strong>Ideas para [ESTILO DESEADO]:</strong> retrato beauty, vintage suave, blanco y negro elegante, atardecer cálido, fotografía urbana, retrato navideño…
+      </div>
+    </div>
+  </section>
+
+  <section id="list" class="grid"></section>
+  <div id="status" class="status" aria-live="polite"></div>
+  <div class="footer">Momentos con Blancanieves · McB</div>
+</main>
+
+<script>
+const prompts = [{"id": 1, "icon": "📷", "name": "Cámara profesional", "use": "Para que una foto normal parezca hecha con una DSLR profesional.", "text": "Transforma mi foto para que parezca tomada con una cámara DSLR profesional. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMejora la calidad fotográfica general con profundidad de campo realista, desenfoque de fondo natural, iluminación equilibrada, exposición correcta, textura de piel realista y corrección de color profesional.\n\nMantén la textura natural de la piel, evitando el exceso de suavizado o retoque artificial.\n\nEl resultado debe verse natural, elegante y de alta calidad, como un retrato profesional auténtico, no una imagen generada por IA."}, {"id": 2, "icon": "🎬", "name": "Estilo cinematográfico", "use": "Para conseguir atmósfera, profundidad y un acabado de cine.", "text": "Dale a mi foto un acabado de fotografía cinematográfica de alta calidad. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMejora la dirección de la luz, las sombras, el contraste, el color, la profundidad y la atmósfera de forma natural y físicamente creíble.\n\nMantén la textura natural de la piel y evita el exceso de retoque o una apariencia demasiado perfecta.\n\nEl resultado debe parecer un retrato cinematográfico profesional, elegante y realista, sin aspecto artificial ni generado por IA."}, {"id": 3, "icon": "✨", "name": "Sesión editorial de lujo", "use": "Para un acabado sofisticado, premium y de revista de alta gama.", "text": "Convierte mi foto en una fotografía editorial de alta gama. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis rasgos faciales, no rejuvenezcas mi rostro y no cambies mi peinado ni mi apariencia general.\n\nMejora la iluminación, la composición, el contraste, el color, la nitidez, la separación del fondo y la profundidad visual con un acabado sofisticado y profesional.\n\nMantén la textura natural de la piel, sin efecto plástico ni exceso de suavizado.\n\nEl resultado debe verse como una sesión editorial de lujo para revista, refinada y elegante, pero manteniendo todos mis rasgos físicos realistas y auténticos."}, {"id": 4, "icon": "🌙", "name": "Fotografía nocturna", "use": "Para una escena nocturna realista, sin luces falsas ni piel artificial.", "text": "Transforma mi foto en una fotografía nocturna profesional y realista. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nRecrea una iluminación nocturna físicamente creíble, respetando la dirección y procedencia de las fuentes de luz. Añade sombras naturales, luz ambiental, reflejos sutiles, profundidad y detalles atmosféricos realistas. Mantén el rostro correctamente expuesto y bien integrado en la escena.\n\nConserva la textura natural de la piel y evita la piel brillante, plástica o artificial.\n\nEl resultado debe parecer una fotografía nocturna auténtica tomada por un fotógrafo profesional, no una imagen generada por IA."}, {"id": 5, "icon": "✈️", "name": "Fotografía de viajes", "use": "Para potenciar el destino manteniendo el lugar real y reconocible.", "text": "Edita mi foto como si hubiera sido tomada por un fotógrafo profesional de viajes. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMantén el lugar original reconocible y fiel a la realidad, sin inventar paisajes, edificios o elementos que no estén presentes.\n\nMejora la iluminación natural, la composición, la profundidad, la perspectiva atmosférica, el color, el contraste y la integración entre sujeto y entorno.\n\nConserva la textura natural de la piel y los detalles reales de la escena.\n\nEl resultado debe parecer una fotografía auténtica de viaje, inmersiva y profesional, sin aspecto artificial ni generado por IA."}, {"id": 6, "icon": "📰", "name": "Calidad de portada de revista", "use": "Para retratos con presencia, elegancia y acabado editorial.", "text": "Transforma mi retrato para que tenga la calidad visual de una portada de revista profesional. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi físico.\n\nMejora la iluminación, exposición, composición, profundidad, separación del fondo, rango tonal, color, nitidez y detalle fotográfico con un acabado editorial sofisticado.\n\nMantén la textura natural de la piel, poros, líneas de expresión e imperfecciones reales, evitando cualquier efecto plástico o excesivamente retocado.\n\nEl resultado debe transmitir presencia, elegancia y calidad de portada, como una fotografía profesional auténtica tomada con cámara, no una imagen generada por IA."}, {"id": 7, "icon": "🛠️", "name": "Corrige problemas", "use": "Para arreglar una foto sin imponerle un estilo ni reinterpretarla.", "text": "Actúa como un editor fotográfico profesional. Analiza mi imagen e identifica únicamente los problemas reales que afecten a su calidad: iluminación, exposición, balance de blancos, composición, encuadre, elementos que distraen, color, sombras, altas luces, nitidez, enfoque, profundidad y equilibrio visual.\n\nCorrige solo aquello que realmente necesite mejorar, sin transformar innecesariamente la fotografía.\n\nConserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y textura natural de la piel. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMantén el aspecto natural de la imagen y evita el exceso de retoque, la piel plástica, la sobresaturación, el enfoque artificial o cualquier modificación que haga que parezca generada por IA.\n\nEl resultado debe ser una versión mejorada de la misma foto, no una reinterpretación."}];
+const list = document.getElementById('list');
+const search = document.getElementById('search');
+const status = document.getElementById('status');
+
+async function copyPrompt(text, name, ta) {
+  try {
+    await navigator.clipboard.writeText(text);
+    status.textContent = '✓ “' + name + '” copiado.';
+  } catch(e) {
+    ta.focus(); ta.select();
+    try {
+      document.execCommand('copy');
+      status.textContent = '✓ “' + name + '” copiado.';
+    } catch(e2) {
+      status.textContent = 'Texto seleccionado. Mantén pulsado y toca Copiar.';
+    }
+  }
+}
+
+function render(q='') {
+  const s=q.trim().toLowerCase();
+  const found=prompts.filter(p => (p.name+' '+p.use+' '+p.text).toLowerCase().includes(s));
+  list.innerHTML='';
+  found.forEach(p => {
+    const card=document.createElement('article'); card.className='card';
+    const head=document.createElement('button'); head.className='head'; head.type='button'; head.setAttribute('aria-expanded','false');
+    head.innerHTML=`<span class="emoji">${p.icon}</span><span class="meta"><span class="title">${p.id}. ${p.name}</span><span class="use">${p.use}</span></span><span class="chev">⌄</span>`;
+    const body=document.createElement('div'); body.className='body hidden';
+    const ta=document.createElement('textarea'); ta.readOnly=true; ta.value=p.text; ta.setAttribute('aria-label','Prompt '+p.name);
+    const actions=document.createElement('div'); actions.className='actions';
+    const copy=document.createElement('button'); copy.type='button'; copy.className='action primary'; copy.textContent='Copiar prompt';
+    const sel=document.createElement('button'); sel.type='button'; sel.className='action secondary'; sel.textContent='Seleccionar texto';
+    copy.addEventListener('click',()=>copyPrompt(p.text,p.name,ta));
+    sel.addEventListener('click',()=>{ta.focus();ta.select();status.textContent='Texto seleccionado.';});
+    actions.append(copy,sel); body.append(ta,actions); card.append(head,body); list.append(card);
+    head.addEventListener('click',()=>{
+      const opening=body.classList.contains('hidden');
+      body.classList.toggle('hidden');
+      card.classList.toggle('open',opening);
+      head.setAttribute('aria-expanded', String(opening));
+      head.querySelector('.chev').textContent=opening?'⌃':'⌄';
+    });
+  });
+  if(!found.length) list.innerHTML='<div class="tip">No encuentro ningún prompt con esa búsqueda.</div>';
+}
+search.addEventListener('input',()=>render(search.value));
+
+const motherToggle=document.getElementById('mother-toggle');
+const motherBody=document.getElementById('mother-body');
+if(motherToggle && motherBody){
+  motherToggle.addEventListener('click',()=>{
+    const opening=motherBody.classList.contains('hidden');
+    motherBody.classList.toggle('hidden');
+    motherToggle.setAttribute('aria-expanded',String(opening));
+    motherToggle.querySelector('.chev').textContent=opening?'⌃':'⌄';
+  });
+}
+document.querySelectorAll('[data-copy-target]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const ta=document.getElementById(btn.dataset.copyTarget);
+    copyPrompt(ta.value,btn.dataset.copyName,ta);
+  });
+});
+
+render();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
