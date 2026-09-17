@@ -1,70 +1,5 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#b88c8b">
-<meta name="description" content="Biblioteca McB de prompts fotográficos para editar imágenes manteniendo tu identidad.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2">
-<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png?v=2">
-<title>Prompts Foto McB</title>
-<style>
-:root{--bg:#f8f3f1;--card:#fffdfc;--text:#342e2d;--muted:#756d6a;--rose:#b88c8b;--rose2:#ead9d5;--sage:#9eaa96;--sage2:#e6ebe1;--border:#e6dcd8;--shadow:0 10px 30px rgba(65,49,45,.08)}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
-.app{max-width:780px;margin:auto;padding:18px 14px 40px}
-.hero{padding:20px 4px 14px}
-.brand{font-family:Georgia,serif;font-size:30px;line-height:1.05;margin:0}
-.sub{color:var(--muted);margin:7px 0 0}
-.search{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 85%,transparent);padding:10px 0 14px}
-.search input{width:100%;font-size:16px;border:1px solid var(--border);background:white;padding:14px 16px;border-radius:16px;outline:none}
-.search input:focus{border-color:var(--rose);box-shadow:0 0 0 3px var(--rose2)}
-.tip{background:var(--sage2);border:1px solid #d8e0d2;padding:14px 15px;border-radius:16px;margin-bottom:14px;font-size:14px}
-.grid{display:grid;gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
-.head{width:100%;border:0;background:transparent;padding:16px;display:flex;gap:12px;text-align:left;align-items:flex-start;color:inherit}
-.emoji{font-size:25px}
-.meta{flex:1;min-width:0}
-.title{font-weight:800;font-size:17px}
-.use{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}
-.chev{color:var(--muted);font-size:20px}
-.body{padding:0 16px 16px}
-.hidden{display:none}
-textarea{width:100%;min-height:260px;resize:vertical;border:1px solid var(--border);border-radius:14px;background:#fff;padding:13px;font:15px/1.45 system-ui;color:var(--text)}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
-button.action{min-height:46px;border:0;border-radius:13px;padding:0 15px;font-weight:800;font-size:15px}
-.primary{background:var(--rose);color:white}
-.secondary{background:var(--sage2);color:var(--text)}
-.status{min-height:22px;margin:14px 2px;color:var(--muted);font-size:14px}
-.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:28px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}.card.open{grid-column:1/-1}}
-</style>
-</head>
-<body>
-<main class="app">
-  <section class="hero">
-    <h1 class="brand">Prompts Foto McB</h1>
-    <p class="sub">Elige un estilo, abre el prompt y cópialo. Tu identidad siempre primero.</p>
-  </section>
-
-  <div class="search"><input id="search" type="search" placeholder="Buscar: viaje, noche, portada…" aria-label="Buscar prompt"></div>
-
-  <div class="tip"><strong>¿No sabes cuál usar?</strong> Si la foto ya te gusta pero algo falla, empieza por <b>Corrige problemas</b>. Si buscas un acabado concreto, elige uno de los otros estilos.</div>
-
-
-  <section class="card open" id="mother-card" style="margin-bottom:14px;">
-    <button class="head" id="mother-toggle" type="button" aria-expanded="false">
-      <span class="emoji">🧩</span>
-      <span class="meta">
-        <span class="title">Plantilla madre para nuevos estilos</span>
-        <span class="use">Sustituye [ESTILO DESEADO] por el acabado que quieras crear.</span>
-      </span>
-      <span class="chev">⌄</span>
-    </button>
-    <div class="body hidden" id="mother-body">
-      <p class="use" style="margin:0 0 8px;"><b>Plantilla completa</b></p>
-      <textarea id="mother-full" readonly aria-label="Plantilla madre completa">Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi apariencia física general.
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#b88c8b"><meta name="description" content="Biblioteca McB de prompts fotográficos para editar imágenes manteniendo tu identidad."><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=2"><link rel="apple-touch-icon" sizes="192x192" href="icon-192.png?v=2"><title>Prompts Foto McB</title><style>:root{--bg:#f8f3f1;--card:#fffdfc;--text:#342e2d;--muted:#756d6a;--rose:#b88c8b;--rose2:#ead9d5;--sage2:#e6ebe1;--border:#e6dcd8;--shadow:0 10px 30px rgba(65,49,45,.08)}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}.app{max-width:780px;margin:auto;padding:18px 14px 40px}.hero{padding:20px 4px 14px}.brand{font-family:Georgia,serif;font-size:30px;line-height:1.05;margin:0}.sub{color:var(--muted);margin:7px 0 0}.search{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 85%,transparent);padding:10px 0 14px}.search input{width:100%;font-size:16px;border:1px solid var(--border);background:white;padding:14px 16px;border-radius:16px;outline:none}.tip{background:var(--sage2);border:1px solid #d8e0d2;padding:14px 15px;border-radius:16px;margin-bottom:14px;font-size:14px}.grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.head{width:100%;border:0;background:transparent;padding:16px;display:flex;gap:12px;text-align:left;align-items:flex-start;color:inherit}.emoji{font-size:25px}.meta{flex:1;min-width:0}.title{font-weight:800;font-size:17px}.use{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.35}.chev{color:var(--muted);font-size:20px}.body{padding:0 16px 16px}.hidden{display:none}textarea{width:100%;min-height:260px;resize:vertical;border:1px solid var(--border);border-radius:14px;background:#fff;padding:13px;font:15px/1.45 system-ui;color:var(--text)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}button.action{min-height:46px;border:0;border-radius:13px;padding:0 15px;font-weight:800;font-size:15px}.primary{background:var(--rose);color:white}.secondary{background:var(--sage2);color:var(--text)}.status{min-height:22px;margin:14px 2px;color:var(--muted);font-size:14px}.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:28px}@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}.card.open{grid-column:1/-1}}</style></head><body><main class="app"><section class="hero"><h1 class="brand">Prompts Foto McB</h1><p class="sub">Elige un estilo, abre el prompt y cópialo. Tu identidad siempre primero.</p></section><div class="search"><input id="search" type="search" placeholder="Buscar: viaje, noche, portada…" aria-label="Buscar prompt"></div><div class="tip"><strong>¿No sabes cuál usar?</strong> Si la foto ya te gusta pero algo falla, empieza por <b>Corrige problemas</b>. Si buscas un acabado concreto, elige uno de los otros estilos.</div><section class="card open" id="mother-card" style="margin-bottom:14px"><button class="head" id="mother-toggle" type="button" aria-expanded="false"><span class="emoji">🧩</span><span class="meta"><span class="title">Plantilla madre para nuevos estilos</span><span class="use">Sustituye [ESTILO DESEADO] por el acabado que quieras crear.</span></span><span class="chev">⌄</span></button><div class="body hidden" id="mother-body"><p class="use"><b>Plantilla completa</b></p><textarea id="mother-full" readonly>Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi apariencia física general.
 
 Mejora únicamente lo necesario en iluminación, exposición, color, contraste, profundidad, nitidez, composición y calidad fotográfica general.
 
@@ -74,97 +9,252 @@ Conserva la textura natural de la piel, poros, líneas de expresión e imperfecc
 
 Evita el exceso de retoque, la piel plástica, la sobresaturación, la iluminación irreal y cualquier resultado que parezca generado por IA.
 
-El resultado debe parecer una fotografía auténtica tomada por un profesional.</textarea>
-      <div class="actions">
-        <button type="button" class="action primary" data-copy-target="mother-full" data-copy-name="Plantilla madre completa">Copiar completa</button>
-      </div>
-      <p class="use" style="margin:16px 0 8px;"><b>Versión corta</b></p>
-      <textarea id="mother-short" readonly aria-label="Plantilla madre corta">Conserva exactamente mi identidad, rostro, cuerpo, ropa y expresión. No alteres mis facciones ni rejuvenezcas mi rostro. Mejora luz, exposición, color, contraste, profundidad, composición y nitidez. Aplica un acabado de [ESTILO DESEADO] de forma natural y creíble. Conserva la textura real de la piel y evita cualquier aspecto artificial o generado por IA.</textarea>
-      <div class="actions">
-        <button type="button" class="action secondary" data-copy-target="mother-short" data-copy-name="Plantilla madre corta">Copiar corta</button>
-      </div>
-      <div class="tip" style="margin-top:12px;margin-bottom:0;">
-        <strong>Ideas para [ESTILO DESEADO]:</strong> retrato beauty, vintage suave, blanco y negro elegante, atardecer cálido, fotografía urbana, retrato navideño…
-      </div>
-    </div>
-  </section>
+El resultado debe parecer una fotografía auténtica tomada por un profesional.</textarea><div class="actions"><button class="action primary" data-copy-target="mother-full" data-copy-name="Plantilla madre completa">Copiar completa</button></div><p class="use"><b>Versión corta</b></p><textarea id="mother-short" readonly>Conserva exactamente mi identidad, rostro, cuerpo, ropa y expresión. No alteres mis facciones ni rejuvenezcas mi rostro. Mejora luz, exposición, color, contraste, profundidad, composición y nitidez. Aplica un acabado de [ESTILO DESEADO] de forma natural y creíble. Conserva la textura real de la piel y evita cualquier aspecto artificial o generado por IA.</textarea><div class="actions"><button class="action secondary" data-copy-target="mother-short" data-copy-name="Plantilla madre corta">Copiar corta</button></div></div></section><section id="list" class="grid"></section><div id="status" class="status" aria-live="polite"></div><div class="footer">Momentos con Blancanieves · McB</div></main><script>
+const prompts=[
+{id:1,icon:'📷',name:'Cámara profesional',use:'Para que una foto normal parezca hecha con una DSLR profesional.',text:`Transforma mi foto para que parezca tomada con una cámara DSLR profesional. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.
 
-  <section id="list" class="grid"></section>
-  <div id="status" class="status" aria-live="polite"></div>
-  <div class="footer">Momentos con Blancanieves · McB</div>
-</main>
+Mejora la calidad fotográfica general con profundidad de campo realista, desenfoque de fondo natural, iluminación equilibrada, exposición correcta, textura de piel realista y corrección de color profesional.
 
-<script>
-const prompts = [{"id": 1, "icon": "📷", "name": "Cámara profesional", "use": "Para que una foto normal parezca hecha con una DSLR profesional.", "text": "Transforma mi foto para que parezca tomada con una cámara DSLR profesional. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMejora la calidad fotográfica general con profundidad de campo realista, desenfoque de fondo natural, iluminación equilibrada, exposición correcta, textura de piel realista y corrección de color profesional.\n\nMantén la textura natural de la piel, evitando el exceso de suavizado o retoque artificial.\n\nEl resultado debe verse natural, elegante y de alta calidad, como un retrato profesional auténtico, no una imagen generada por IA."}, {"id": 2, "icon": "🎬", "name": "Estilo cinematográfico", "use": "Para conseguir atmósfera, profundidad y un acabado de cine.", "text": "Dale a mi foto un acabado de fotografía cinematográfica de alta calidad. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMejora la dirección de la luz, las sombras, el contraste, el color, la profundidad y la atmósfera de forma natural y físicamente creíble.\n\nMantén la textura natural de la piel y evita el exceso de retoque o una apariencia demasiado perfecta.\n\nEl resultado debe parecer un retrato cinematográfico profesional, elegante y realista, sin aspecto artificial ni generado por IA."}, {"id": 3, "icon": "✨", "name": "Sesión editorial de lujo", "use": "Para un acabado sofisticado, premium y de revista de alta gama.", "text": "Convierte mi foto en una fotografía editorial de alta gama. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis rasgos faciales, no rejuvenezcas mi rostro y no cambies mi peinado ni mi apariencia general.\n\nMejora la iluminación, la composición, el contraste, el color, la nitidez, la separación del fondo y la profundidad visual con un acabado sofisticado y profesional.\n\nMantén la textura natural de la piel, sin efecto plástico ni exceso de suavizado.\n\nEl resultado debe verse como una sesión editorial de lujo para revista, refinada y elegante, pero manteniendo todos mis rasgos físicos realistas y auténticos."}, {"id": 4, "icon": "🌙", "name": "Fotografía nocturna", "use": "Para una escena nocturna realista, sin luces falsas ni piel artificial.", "text": "Transforma mi foto en una fotografía nocturna profesional y realista. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nRecrea una iluminación nocturna físicamente creíble, respetando la dirección y procedencia de las fuentes de luz. Añade sombras naturales, luz ambiental, reflejos sutiles, profundidad y detalles atmosféricos realistas. Mantén el rostro correctamente expuesto y bien integrado en la escena.\n\nConserva la textura natural de la piel y evita la piel brillante, plástica o artificial.\n\nEl resultado debe parecer una fotografía nocturna auténtica tomada por un fotógrafo profesional, no una imagen generada por IA."}, {"id": 5, "icon": "✈️", "name": "Fotografía de viajes", "use": "Para potenciar el destino manteniendo el lugar real y reconocible.", "text": "Edita mi foto como si hubiera sido tomada por un fotógrafo profesional de viajes. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMantén el lugar original reconocible y fiel a la realidad, sin inventar paisajes, edificios o elementos que no estén presentes.\n\nMejora la iluminación natural, la composición, la profundidad, la perspectiva atmosférica, el color, el contraste y la integración entre sujeto y entorno.\n\nConserva la textura natural de la piel y los detalles reales de la escena.\n\nEl resultado debe parecer una fotografía auténtica de viaje, inmersiva y profesional, sin aspecto artificial ni generado por IA."}, {"id": 6, "icon": "📰", "name": "Calidad de portada de revista", "use": "Para retratos con presencia, elegancia y acabado editorial.", "text": "Transforma mi retrato para que tenga la calidad visual de una portada de revista profesional. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi físico.\n\nMejora la iluminación, exposición, composición, profundidad, separación del fondo, rango tonal, color, nitidez y detalle fotográfico con un acabado editorial sofisticado.\n\nMantén la textura natural de la piel, poros, líneas de expresión e imperfecciones reales, evitando cualquier efecto plástico o excesivamente retocado.\n\nEl resultado debe transmitir presencia, elegancia y calidad de portada, como una fotografía profesional auténtica tomada con cámara, no una imagen generada por IA."}, {"id": 7, "icon": "🛠️", "name": "Corrige problemas", "use": "Para arreglar una foto sin imponerle un estilo ni reinterpretarla.", "text": "Actúa como un editor fotográfico profesional. Analiza mi imagen e identifica únicamente los problemas reales que afecten a su calidad: iluminación, exposición, balance de blancos, composición, encuadre, elementos que distraen, color, sombras, altas luces, nitidez, enfoque, profundidad y equilibrio visual.\n\nCorrige solo aquello que realmente necesite mejorar, sin transformar innecesariamente la fotografía.\n\nConserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y textura natural de la piel. No alteres mis facciones ni rejuvenezcas mi rostro.\n\nMantén el aspecto natural de la imagen y evita el exceso de retoque, la piel plástica, la sobresaturación, el enfoque artificial o cualquier modificación que haga que parezca generada por IA.\n\nEl resultado debe ser una versión mejorada de la misma foto, no una reinterpretación."}];
-const list = document.getElementById('list');
-const search = document.getElementById('search');
-const status = document.getElementById('status');
+Mantén la textura natural de la piel, evitando el exceso de suavizado o retoque artificial.
 
-async function copyPrompt(text, name, ta) {
-  try {
-    await navigator.clipboard.writeText(text);
-    status.textContent = '✓ “' + name + '” copiado.';
-  } catch(e) {
-    ta.focus(); ta.select();
-    try {
-      document.execCommand('copy');
-      status.textContent = '✓ “' + name + '” copiado.';
-    } catch(e2) {
-      status.textContent = 'Texto seleccionado. Mantén pulsado y toca Copiar.';
-    }
-  }
-}
+El resultado debe verse natural, elegante y de alta calidad, como un retrato profesional auténtico, no una imagen generada por IA.`},
+{id:2,icon:'🎬',name:'Estilo cinematográfico',use:'Para conseguir atmósfera, profundidad y un acabado de cine.',text:`Dale a mi foto un acabado de fotografía cinematográfica de alta calidad. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.
 
-function render(q='') {
-  const s=q.trim().toLowerCase();
-  const found=prompts.filter(p => (p.name+' '+p.use+' '+p.text).toLowerCase().includes(s));
-  list.innerHTML='';
-  found.forEach(p => {
-    const card=document.createElement('article'); card.className='card';
-    const head=document.createElement('button'); head.className='head'; head.type='button'; head.setAttribute('aria-expanded','false');
-    head.innerHTML=`<span class="emoji">${p.icon}</span><span class="meta"><span class="title">${p.id}. ${p.name}</span><span class="use">${p.use}</span></span><span class="chev">⌄</span>`;
-    const body=document.createElement('div'); body.className='body hidden';
-    const ta=document.createElement('textarea'); ta.readOnly=true; ta.value=p.text; ta.setAttribute('aria-label','Prompt '+p.name);
-    const actions=document.createElement('div'); actions.className='actions';
-    const copy=document.createElement('button'); copy.type='button'; copy.className='action primary'; copy.textContent='Copiar prompt';
-    const sel=document.createElement('button'); sel.type='button'; sel.className='action secondary'; sel.textContent='Seleccionar texto';
-    copy.addEventListener('click',()=>copyPrompt(p.text,p.name,ta));
-    sel.addEventListener('click',()=>{ta.focus();ta.select();status.textContent='Texto seleccionado.';});
-    actions.append(copy,sel); body.append(ta,actions); card.append(head,body); list.append(card);
-    head.addEventListener('click',()=>{
-      const opening=body.classList.contains('hidden');
-      body.classList.toggle('hidden');
-      card.classList.toggle('open',opening);
-      head.setAttribute('aria-expanded', String(opening));
-      head.querySelector('.chev').textContent=opening?'⌃':'⌄';
-    });
-  });
-  if(!found.length) list.innerHTML='<div class="tip">No encuentro ningún prompt con esa búsqueda.</div>';
-}
-search.addEventListener('input',()=>render(search.value));
+Mejora la dirección de la luz, las sombras, el contraste, el color, la profundidad y la atmósfera de forma natural y físicamente creíble.
 
-const motherToggle=document.getElementById('mother-toggle');
-const motherBody=document.getElementById('mother-body');
-if(motherToggle && motherBody){
-  motherToggle.addEventListener('click',()=>{
-    const opening=motherBody.classList.contains('hidden');
-    motherBody.classList.toggle('hidden');
-    motherToggle.setAttribute('aria-expanded',String(opening));
-    motherToggle.querySelector('.chev').textContent=opening?'⌃':'⌄';
-  });
-}
-document.querySelectorAll('[data-copy-target]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const ta=document.getElementById(btn.dataset.copyTarget);
-    copyPrompt(ta.value,btn.dataset.copyName,ta);
-  });
-});
+Mantén la textura natural de la piel y evita el exceso de retoque o una apariencia demasiado perfecta.
 
-render();
+El resultado debe parecer un retrato cinematográfico profesional, elegante y realista, sin aspecto artificial ni generado por IA.`},
+{id:3,icon:'✨',name:'Sesión editorial de lujo',use:'Para un acabado sofisticado, premium y de revista de alta gama.',text:`Convierte mi foto en una fotografía editorial de alta gama. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis rasgos faciales, no rejuvenezcas mi rostro y no cambies mi peinado ni mi apariencia general.
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}
-</script>
-</body>
-</html>
+Mejora la iluminación, la composición, el contraste, el color, la nitidez, la separación del fondo y la profundidad visual con un acabado sofisticado y profesional.
+
+Mantén la textura natural de la piel, sin efecto plástico ni exceso de suavizado.
+
+El resultado debe verse como una sesión editorial de lujo para revista, refinada y elegante, pero manteniendo todos mis rasgos físicos realistas y auténticos.`},
+{id:4,icon:'🌙',name:'Fotografía nocturna',use:'Para una escena nocturna realista, sin luces falsas ni piel artificial.',text:`Transforma mi foto en una fotografía nocturna profesional y realista. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.
+
+Recrea una iluminación nocturna físicamente creíble, respetando la dirección y procedencia de las fuentes de luz. Añade sombras naturales, luz ambiental, reflejos sutiles, profundidad y detalles atmosféricos realistas. Mantén el rostro correctamente expuesto y bien integrado en la escena.
+
+Conserva la textura natural de la piel y evita la piel brillante, plástica o artificial.
+
+El resultado debe parecer una fotografía nocturna auténtica tomada por un fotógrafo profesional, no una imagen generada por IA.`},
+{id:5,icon:'✈️',name:'Fotografía de viajes',use:'Para potenciar el destino manteniendo el lugar real y reconocible.',text:`Edita mi foto como si hubiera sido tomada por un fotógrafo profesional de viajes. Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones ni rejuvenezcas mi rostro.
+
+Mantén el lugar original reconocible y fiel a la realidad, sin inventar paisajes, edificios o elementos que no estén presentes.
+
+Mejora la iluminación natural, la composición, la profundidad, la perspectiva atmosférica, el color, el contraste y la integración entre sujeto y entorno.
+
+Conserva la textura natural de la piel y los detalles reales de la escena.
+
+El resultado debe parecer una fotografía auténtica de viaje, inmersiva y profesional, sin aspecto artificial ni generado por IA.`},
+{id:6,icon:'📰',name:'Calidad de portada de revista',use:'Para retratos con presencia, elegancia y acabado editorial.',text:`Transforma mi retrato para que tenga la calidad visual de una portada de revista profesional. Conserva exactamente mi identidad, rostro, estructura facial, cuerpo, proporciones, expresión, pose, ropa y apariencia natural. No alteres mis facciones, no rejuvenezcas mi rostro y no cambies mi físico.
+
+Mejora la iluminación, exposición, composición, profundidad, separación del fondo, rango tonal, color, nitidez y detalle fotográfico con un acabado editorial sofisticado.
+
+Mantén la textura natural de la piel, poros, líneas de expresión e imperfecciones reales, evitando cualquier efecto plástico o excesivamente retocado.
+
+El resultado debe transmitir presencia, elegancia y calidad de portada, como una fotografía profesional auténtica tomada con cámara, no una imagen generada por IA.`},
+{id:7,icon:'🛠️',name:'Corrige problemas',use:'Para arreglar una foto sin imponerle un estilo ni reinterpretarla.',text:`Actúa como un editor fotográfico profesional. Analiza mi imagen e identifica únicamente los problemas reales que afecten a su calidad: iluminación, exposición, balance de blancos, composición, encuadre, elementos que distraen, color, sombras, altas luces, nitidez, enfoque, profundidad y equilibrio visual.
+
+Corrige solo aquello que realmente necesite mejorar, sin transformar innecesariamente la fotografía.
+
+Conserva exactamente mi identidad, rostro, rasgos faciales, cuerpo, proporciones, expresión, pose, ropa y textura natural de la piel. No alteres mis facciones ni rejuvenezcas mi rostro.
+
+Mantén el aspecto natural de la imagen y evita el exceso de retoque, la piel plástica, la sobresaturación, el enfoque artificial o cualquier modificación que haga que parezca generada por IA.
+
+El resultado debe ser una versión mejorada de la misma foto, no una reinterpretación.`},
+{id:8,icon:'👩‍❤️‍👨',name:'Júntanos en una misma foto',use:'Une a dos personas de fotos distintas como si hubieran posado juntas.',text:`Utiliza las dos fotografías que te proporciono como referencias independientes y crea una única fotografía en la que ambas personas aparezcan juntas, como si realmente hubieran sido fotografiadas en el mismo lugar y en el mismo momento.
+
+Conserva fielmente la identidad de cada persona: rostro, facciones, edad aparente, tono y textura natural de la piel, cabello, complexión y características reconocibles. No rejuvenezcas, embellezcas en exceso ni mezcles los rasgos de una persona con los de la otra.
+
+Integra a ambas de forma totalmente natural y fotográficamente creíble. Ajusta proporciones, alturas relativas, perspectiva, posición corporal, distancia entre ellas, dirección de la mirada, iluminación, sombras, temperatura de color, enfoque y profundidad de campo para que no parezca un fotomontaje.
+
+Respeta la ropa y accesorios originales de cada persona salvo que indique lo contrario. Reconstruye únicamente las zonas necesarias para conseguir una composición coherente, evitando deformaciones en manos, brazos, dedos o cuerpo.
+
+Haz que la interacción entre ambas resulte espontánea y realista, con una postura natural propia de una fotografía tomada juntas, sin poses artificiales.
+
+Acabado final de fotografía profesional de alta gama: detalle nítido pero natural, piel real, iluminación coherente y aspecto auténtico de cámara. El resultado debe parecer una fotografía real tomada a las dos personas juntas, no dos fotografías recortadas y combinadas ni una imagen generada por IA.`},
+{id:9,icon:'🌍',name:'Llévame a este lugar',use:'Pon tu imagen en otro lugar usando una segunda foto como escenario.',text:`Utiliza las dos fotografías que te proporciono como referencias: la primera contiene a la persona que debe aparecer en la imagen final y la segunda muestra el lugar o escenario al que quiero trasladarla.
+
+Conserva fielmente mi identidad y apariencia de la primera fotografía: rostro, facciones, edad aparente, tono y textura natural de la piel, cabello, complexión y características reconocibles. No rejuvenezcas, estilices ni modifiques mi fisionomía.
+
+Sitúame de forma natural y fotográficamente creíble dentro del lugar de la segunda imagen, como si realmente hubiera estado allí y alguien me hubiese hecho la fotografía en ese momento.
+
+Respeta fielmente las características reconocibles del escenario. Ajusta mi tamaño, posición, perspectiva, distancia respecto a los elementos del entorno, dirección de la luz, sombras, reflejos, temperatura de color, enfoque y profundidad de campo para que persona y escenario pertenezcan realmente a la misma fotografía.
+
+Mantén mi ropa, accesorios y aspecto original salvo que indique expresamente lo contrario. Si es necesario reconstruir alguna parte del cuerpo para integrarme en la escena, hazlo respetando mis proporciones y evitando deformaciones en manos, brazos, piernas o dedos.
+
+Adapta únicamente mi postura cuando sea necesario para que resulte lógica dentro del escenario, manteniendo una actitud espontánea y natural, como una auténtica fotografía de viaje.
+
+Acabado final de fotografía profesional de alta gama, realista y natural. No debe parecer que mi figura ha sido recortada y pegada sobre un fondo ni que el lugar es un decorado. El resultado debe parecer una fotografía real tomada de mí en ese lugar.`},
+{id:10,icon:'📰',name:'Portada de revista editorial',use:'Crea una auténtica portada de revista con maquetación y textos.',text:`Transforma la fotografía que te proporciono en una portada de revista editorial de alta gama, elegante, sofisticada y visualmente impactante, como una auténtica sesión realizada para una publicación profesional.
+
+Conserva fielmente mi identidad: rostro, facciones, edad aparente, tono y textura natural de la piel, cabello, complexión y características reconocibles. No rejuvenezcas ni cambies mi fisionomía.
+
+Mejora de forma profesional la iluminación, exposición, contraste, encuadre y profundidad de campo. Mantén una piel real y natural, sin efecto plástico ni retoque excesivo.
+
+Adapta la composición para dejar espacio suficiente alrededor de la persona para una auténtica maquetación editorial. La fotografía debe ser la protagonista.
+
+Añade una cabecera de revista elegante y textos secundarios visualmente equilibrados, con tipografía editorial profesional y perfectamente legible. No inventes marcas ni logotipos reales salvo que yo indique expresamente el nombre de la revista.
+
+Respeta mi ropa y accesorios originales salvo que indique lo contrario. Cuida especialmente manos, cabello, joyas y pequeños detalles.
+
+El resultado debe transmitir fotografía editorial de lujo, con acabado de cámara profesional, iluminación cuidada, composición de revista y gran calidad visual.
+
+Debe parecer una portada de revista realmente fotografiada y diseñada por profesionales, no una plantilla genérica ni una imagen creada por IA.`},
+{id:11,icon:'🪄',name:'Restaura y mejora una foto antigua',use:'Repara daños y recupera calidad sin cambiar la foto original.',text:`Restaura profesionalmente la fotografía que te proporciono, recuperando la máxima calidad posible sin cambiar a las personas, el lugar ni el momento original.
+
+Repara deterioros propios de una fotografía antigua: arañazos, manchas, polvo, pliegues, zonas desgastadas, pérdida de contraste, desenfoque moderado, ruido y daños producidos por el paso del tiempo.
+
+Recupera cuidadosamente los detalles de rostros, cabello, ropa y entorno utilizando siempre la fotografía original como referencia. No inventes facciones ni modifiques la identidad de las personas. Conserva su edad, expresión, anatomía y características reconocibles.
+
+Mejora de manera natural la nitidez, exposición, contraste y definición, evitando el aspecto excesivamente procesado, la piel artificial o los detalles inventados.
+
+Si existen pequeñas zonas deterioradas o perdidas, reconstruye únicamente lo imprescindible basándote en la información visual disponible y manteniendo coherencia con la época y la fotografía.
+
+Mantén la fotografía en blanco y negro, sepia o color según sea el original, salvo que indique expresamente que quiero colorizarla.
+
+Respeta el encuadre, la ropa, los peinados, objetos y fondo originales. No modernices ningún elemento.
+
+El resultado final debe parecer la misma fotografía original perfectamente conservada y digitalizada hoy en alta calidad, no una recreación moderna ni una imagen generada por IA.`},
+{id:12,icon:'👗',name:'Pásame este look',use:'Traslada la ropa de una segunda foto manteniendo tu cuerpo e identidad.',text:`Utiliza las dos fotografías que te proporciono como referencias: la primera contiene a la persona que debe conservarse y la segunda muestra la ropa o look que quiero trasladar a esa persona.
+
+Mantén fielmente mi identidad y apariencia de la primera fotografía: rostro, facciones, edad aparente, tono y textura natural de la piel, cabello, complexión y proporciones corporales. No cambies mi fisionomía ni adaptes mi cuerpo al de la persona que lleva originalmente la ropa.
+
+Sustituye únicamente mi vestimenta por el conjunto de la segunda fotografía. Reproduce con la mayor fidelidad posible prendas, colores, tejidos, estampados, cortes, escotes, mangas, largos y detalles característicos del look de referencia.
+
+Adapta las prendas de forma natural a mi propio cuerpo, respetando mi anatomía y haciendo que la caída, pliegues, volumen y ajuste de la ropa sean físicamente creíbles.
+
+Conserva mis accesorios originales salvo que indique lo contrario. Si la segunda imagen incluye complementos que forman parte esencial del look, incorpóralos únicamente cuando resulte coherente.
+
+Mantén el escenario, pose e iluminación de mi fotografía original siempre que sea posible. Ajusta sombras, reflejos y luz sobre las nuevas prendas para integrarlas perfectamente en la imagen.
+
+Cuida especialmente las uniones alrededor del cuello, hombros, brazos, cintura y manos para evitar deformaciones o señales de montaje.
+
+Acabado final de fotografía profesional realista y de alta calidad, conservando textura auténtica tanto en piel como en tejidos.
+
+El resultado debe parecer que realmente llevaba puesto ese conjunto cuando se tomó la fotografía, no que la ropa ha sido superpuesta digitalmente ni que se ha sustituido mi cuerpo por el de otra persona.`},
+{id:13,icon:'📸',name:'Retrato editorial profesional',use:'Convierte una foto normal en un retrato editorial sin cambiarte.',text:`Transforma la fotografía que te proporciono en un retrato editorial profesional de alta gama, como si hubiera sido realizado por un fotógrafo especializado en retrato para una revista o campaña de imagen.
+
+Conserva fielmente mi identidad: rostro, facciones, edad aparente, expresión, tono y textura natural de la piel, color de ojos, cabello, complexión y características reconocibles. No rejuvenezcas, afines, remodeles ni cambies mi fisionomía.
+
+Mejora profesionalmente la iluminación para favorecer el rostro de forma natural, equilibrando luces y sombras sin borrar líneas de expresión ni textura real de la piel.
+
+Trabaja el encuadre, composición, profundidad de campo y separación del fondo para conseguir una fotografía elegante y visualmente potente. El rostro debe ser el verdadero protagonista.
+
+Mantén mi ropa, peinado, maquillaje y accesorios originales salvo que indique expresamente lo contrario.
+
+Corrige únicamente pequeñas distracciones propias de una fotografía cotidiana: iluminación desigual, dominantes de color, elementos molestos del fondo, ruido o falta moderada de nitidez.
+
+Utiliza un acabado fotográfico sofisticado pero realista: detalle natural, ojos definidos sin exagerarlos, cabello con textura, piel auténtica y colores equilibrados. Evita piel de porcelana, filtros de belleza, maquillaje añadido, rasgos excesivamente perfectos o apariencia artificial.
+
+El resultado debe parecer una fotografía mía realizada durante una auténtica sesión editorial profesional, manteniendo mi aspecto real y reconocible, no una versión idealizada de mí ni una imagen generada por IA.`},
+{id:14,icon:'✨',name:'Retoque natural de piel y sonrisa',use:'Mejora piel, ojos y dientes de forma sutil sin rejuvenecer ni transformar.',text:`Realiza un retoque fotográfico profesional, sutil y natural sobre la persona de la fotografía, mejorando su aspecto sin cambiar su identidad ni borrar las características propias de su edad.
+
+Conserva fielmente rostro, facciones, edad aparente, forma de ojos, nariz, labios, mandíbula, tono de piel y expresión. No rejuvenezcas ni remodeles el rostro.
+
+Mejora la piel de manera realista: equilibra ligeramente el tono, suaviza pequeñas rojeces, manchas temporales o imperfecciones que distraigan y reduce únicamente aquello que resulte necesario. Conserva poros, textura, líneas de expresión y arrugas naturales.
+
+No utilices efecto piel de porcelana, filtros de belleza, alisado excesivo ni maquillaje artificial.
+
+Mejora la sonrisa únicamente si es necesario: limpia pequeñas dominantes de color y aclara los dientes de forma moderada y creíble, conservando su forma, tamaño y tono natural. Evita el blanco artificial.
+
+Mejora suavemente la luminosidad de los ojos sin cambiar su color, forma ni tamaño.
+
+Mantén intactos cabello, cuerpo, ropa, accesorios, iluminación y escenario salvo pequeñas correcciones fotográficas necesarias para conseguir un acabado uniforme.
+
+El resultado debe parecer la misma persona en la misma fotografía, simplemente fotografiada y retocada por un profesional, fresca y favorecida pero completamente reconocible.
+
+Prioridad absoluta: mejorar, no transformar. No quiero parecer más joven ni otra persona; quiero seguir pareciendo yo.`},
+{id:15,icon:'🎨',name:'Coloriza una foto en blanco y negro',use:'Añade color realista y fiel a la época sin modernizar la escena.',text:`Coloriza profesionalmente la fotografía en blanco y negro que te proporciono, convirtiéndola en una imagen a color realista, natural y fiel a la época, sin modificar su contenido original.
+
+Conserva exactamente la identidad de las personas: rostro, facciones, edad, expresión, peinado, complexión y características reconocibles. No rejuvenezcas, embellezcas ni reconstruyas los rostros innecesariamente.
+
+Añade color de forma coherente a piel, cabello, ojos, ropa, objetos y escenario, respetando las tonalidades que puedan deducirse de la fotografía y del contexto histórico.
+
+Cuando un color original no pueda determinarse con certeza, utiliza una tonalidad natural, discreta y verosímil, evitando colores excesivamente saturados o modernos.
+
+Mantén intactos el encuadre, poses, ropa, peinados, objetos, arquitectura y fondo. No modernices ni añadas elementos que no existan en la fotografía original.
+
+Conserva la textura y el carácter de la imagen original, pero mejora suavemente exposición, contraste, definición y equilibrio de color cuando sea necesario.
+
+La piel debe conservar textura auténtica y tonos naturales. Evita el efecto coloreado artificial, la piel anaranjada, los blancos excesivos y los colores uniformes sin matices.
+
+No conviertas la fotografía antigua en una fotografía moderna: el color debe ayudar a imaginar cómo se veía realmente aquella escena, manteniendo su época y su atmósfera.
+
+El resultado debe parecer una fotografía que siempre hubiera sido tomada en color, no una imagen en blanco y negro pintada digitalmente.`},
+{id:16,icon:'🧍‍♀️',name:'Amplía la fotografía a cuerpo entero',use:'Extiende el encuadre y reconstruye el cuerpo con proporciones naturales.',text:`Amplía la fotografía que te proporciono para crear una imagen de cuerpo entero, reconstruyendo de forma natural únicamente las zonas que quedan fuera del encuadre original.
+
+Conserva fielmente mi identidad y todo lo que ya aparece en la fotografía: rostro, facciones, edad aparente, expresión, cabello, tono y textura natural de la piel, complexión, postura y características reconocibles. No cambies mi fisionomía ni mis proporciones corporales.
+
+Extiende el cuerpo respetando mi anatomía y la postura que puede deducirse de la imagen original. Mantén proporciones realistas entre cabeza, torso, brazos y piernas, evitando estilizar, adelgazar, alargar las piernas o modificar mi altura aparente.
+
+Continúa fielmente la ropa que ya aparece en la fotografía, respetando colores, tejidos, estampados, costuras y estilo. No inventes otra vestimenta salvo en aquellas partes que necesariamente deban reconstruirse, y hazlo siguiendo de forma coherente la prenda original.
+
+Si los zapatos no aparecen en la fotografía y no existe información suficiente para conocerlos, utiliza un calzado sencillo y coherente con el conjunto, sin convertirlo en protagonista.
+
+Amplía también el escenario alrededor de la persona manteniendo la misma perspectiva, iluminación, sombras, profundidad de campo y características del lugar original.
+
+Cuida especialmente manos, dedos, piernas, pies y uniones de las prendas para evitar deformaciones.
+
+El resultado debe conservar un acabado de fotografía profesional realista, con anatomía natural y perfecta continuidad entre la parte original y las zonas reconstruidas.
+
+Debe parecer que la fotografía siempre fue tomada de cuerpo entero, no que se ha añadido artificialmente la parte del cuerpo que faltaba.`},
+{id:17,icon:'🚁',name:'Vista aérea / efecto dron',use:'Recrea la escena desde arriba como una toma real de dron.',text:`Transforma la fotografía que te proporciono para recrear una vista aérea espectacular y fotográficamente realista, como si la escena hubiera sido captada con un dron profesional desde una posición elevada.
+
+Conserva fielmente las características reconocibles del lugar, edificios, paisaje, caminos, vegetación, vehículos, personas y demás elementos presentes en la fotografía. No sustituyas el escenario por otro ni inventes elementos innecesarios.
+
+Cambia el punto de vista de forma coherente para mostrar la escena desde arriba, reconstruyendo únicamente las zonas que necesariamente quedarían visibles debido al nuevo ángulo.
+
+Respeta la geometría, escala y disposición espacial de los elementos. Mantén una perspectiva aérea físicamente creíble, evitando edificios deformados, carreteras imposibles o proporciones irreales.
+
+Si aparecen personas, conserva su identidad, ropa y características reconocibles, adaptando únicamente la perspectiva y escala necesarias para que correspondan correctamente a la nueva posición de cámara.
+
+Mantén la hora del día, condiciones meteorológicas y ambiente de la fotografía original salvo que indique lo contrario.
+
+Trabaja iluminación, sombras, reflejos, profundidad, nitidez y detalle como una auténtica fotografía realizada con dron profesional y cámara de alta gama.
+
+El resultado debe transmitir amplitud y profundidad y mostrar el entorno desde una perspectiva que normalmente no podría obtenerse desde el suelo.
+
+Debe parecer una fotografía aérea real del mismo lugar y del mismo momento, no una recreación fantástica ni un escenario diferente generado por IA.`},
+{id:18,icon:'⬆️',name:'Contrapicado cinematográfico',use:'Cambia la cámara a una posición baja para un efecto potente y realista.',text:`Transforma la fotografía que te proporciono para recrear un contrapicado cinematográfico profesional, situando virtualmente la cámara en una posición baja y orientada hacia arriba.
+
+Conserva fielmente la identidad de la persona: rostro, facciones, edad aparente, expresión, cabello, tono y textura natural de la piel, complexión y características reconocibles. No cambies mi fisionomía ni estilices mi cuerpo.
+
+Modifica el punto de vista de forma fotográficamente coherente, como si el fotógrafo hubiese realizado realmente la toma desde una posición cercana al suelo.
+
+Ajusta correctamente perspectiva y proporciones teniendo en cuenta la posición de cámara. El efecto debe resultar atractivo y cinematográfico, sin deformar exageradamente piernas, cuerpo, cabeza o rostro.
+
+Conserva mi ropa, accesorios y aspecto original salvo que indique expresamente lo contrario.
+
+Reconstruye únicamente las partes de la persona o del escenario que necesariamente quedarían visibles debido al nuevo ángulo, respetando arquitectura, objetos y características reconocibles del lugar.
+
+Potencia la sensación de profundidad y presencia mediante una composición profesional, cuidando líneas de fuga, iluminación, sombras, enfoque y profundidad de campo.
+
+Mantén el ambiente, hora del día y condiciones de iluminación de la fotografía original salvo que indique lo contrario.
+
+Acabado de fotografía cinematográfica de alta gama, con perspectiva potente pero natural, detalle realista y sensación auténtica de cámara profesional.
+
+El resultado debe parecer que el fotógrafo realmente se agachó y tomó la fotografía desde abajo, no que la imagen original simplemente ha sido inclinada o deformada digitalmente.`},
+{id:19,icon:'⬇️',name:'Plano cenital profesional',use:'Recrea la fotografía con la cámara situada directamente encima.',text:`Transforma la fotografía que te proporciono para recrear un plano cenital profesional, como si la cámara estuviera situada directamente por encima de la escena y fotografiara verticalmente hacia abajo.
+
+Conserva fielmente la identidad y apariencia de las personas que aparezcan: rostro, facciones, edad aparente, cabello, tono y textura natural de la piel, complexión y características reconocibles. No cambies la fisionomía ni las proporciones corporales.
+
+Modifica el punto de vista de forma fotográficamente coherente para mostrar la escena desde arriba, respetando la posición y relación espacial entre personas, objetos y elementos del entorno.
+
+Reconstruye únicamente aquellas zonas que necesariamente serían visibles desde esta nueva posición de cámara. No inventes objetos ni cambies innecesariamente el escenario original.
+
+Ajusta correctamente perspectiva, escala, iluminación, sombras y reflejos para que correspondan a una auténtica fotografía tomada desde arriba.
+
+Si aparece una persona, adapta su postura únicamente cuando sea necesario para que resulte natural desde el plano cenital, sin deformar cabeza, rostro, manos, brazos, piernas o cuerpo.
+
+Conserva ropa, accesorios, objetos y características reconocibles del lugar salvo que indique expresamente lo contrario.
+
+Cuida especialmente la composición visual y la distribución de los elementos dentro del encuadre, buscando un resultado limpio, equilibrado y editorial.
+
+Acabado de fotografía profesional de alta gama, con detalle natural, profundidad creíble e iluminación coherente.
+
+El resultado debe parecer que un fotógrafo colocó realmente la cámara justo encima de la escena y realizó la fotografía desde allí, no que la imagen original simplemente ha sido girada o deformada.`}
+];
+const list=document.getElementById('list'),search=document.getElementById('search'),status=document.getElementById('status');async function copyPrompt(text,name,ta){try{await navigator.clipboard.writeText(text);status.textContent='✓ “'+name+'” copiado.'}catch(e){ta.focus();ta.select();document.execCommand('copy');status.textContent='✓ “'+name+'” copiado.'}}function render(q=''){const s=q.trim().toLowerCase(),found=prompts.filter(p=>(p.name+' '+p.use+' '+p.text).toLowerCase().includes(s));list.innerHTML='';found.forEach(p=>{const card=document.createElement('section');card.className='card';card.innerHTML=`<button class="head" type="button"><span class="emoji">${p.icon}</span><span class="meta"><span class="title">${p.id}. ${p.name}</span><span class="use">${p.use}</span></span><span class="chev">⌄</span></button><div class="body hidden"><textarea readonly></textarea><div class="actions"><button class="action primary">Copiar prompt</button></div></div>`;const head=card.querySelector('.head'),body=card.querySelector('.body'),ta=card.querySelector('textarea');ta.value=p.text;head.onclick=()=>{const open=body.classList.toggle('hidden')===false;card.classList.toggle('open',open);head.querySelector('.chev').textContent=open?'⌃':'⌄'};card.querySelector('.action').onclick=()=>copyPrompt(p.text,p.name,ta);list.appendChild(card)});status.textContent=found.length+' prompt'+(found.length===1?'':'s')+' disponible'+(found.length===1?'':'s')+'.'}search.oninput=e=>render(e.target.value);document.getElementById('mother-toggle').onclick=()=>{const b=document.getElementById('mother-body'),t=document.getElementById('mother-toggle'),open=b.classList.toggle('hidden')===false;t.querySelector('.chev').textContent=open?'⌃':'⌄'};document.querySelectorAll('[data-copy-target]').forEach(btn=>btn.onclick=()=>{const ta=document.getElementById(btn.dataset.copyTarget);copyPrompt(ta.value,btn.dataset.copyName,ta)});render();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');</script></body></html>
