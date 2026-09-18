@@ -1,4 +1,4 @@
-const CACHE='mcb-prompts-v5';
+const CACHE='mcb-prompts-v6';
 const ASSETS=[
   './',
   './index.html',
