@@ -308,6 +308,45 @@ Utiliza un efecto de gravedad cero moderado y visualmente limpio. No llenes la i
 Acabado final de fotografía publicitaria de producto de alta gama, nítida, elegante, dinámica y fotográficamente realista.
 
 REGLA FINAL: la creatividad debe estar en la composición, la suspensión, la iluminación y el movimiento; no en rediseñar los productos. Si para crear el efecto fuera necesario modificar significativamente un envase o una etiqueta, reduce el efecto y conserva el producto original.`}
+,
+{id:29,icon:'🔑',name:'Mirada por el ojo de la cerradura · Editorial POV',use:'Recrea la escena como si la cámara observara realmente a través de una cerradura.',text:`Transforma la fotografía que te proporciono en una composición editorial POV vista a través del ojo de una cerradura, como si la cámara estuviera situada físicamente al otro lado de una puerta observando la escena.
+
+Conserva fielmente la identidad de la persona: rostro, facciones, edad aparente, expresión, cabello, tono y textura natural de la piel, cuerpo, proporciones, ropa y accesorios. No rejuvenezcas, embellezcas ni modifiques su fisionomía.
+
+Mantén la escena original reconocible y coloca virtualmente la cámara detrás de una cerradura realista. El borde interior de la cerradura debe aparecer muy próximo al objetivo, oscuro y desenfocado, creando un marco orgánico con profundidad real, no una silueta negra plana superpuesta sobre la fotografía.
+
+La abertura debe respetar una geometría y perspectiva físicamente creíbles. La escena observada al otro lado debe mostrar la compresión, profundidad de campo y ligera limitación visual propias de mirar realmente por una cerradura.
+
+Adapta el encuadre para que la persona o elemento principal quede visible de forma intencionada a través de la abertura. No deformes el rostro ni el cuerpo para hacerlos encajar: modifica el encuadre antes que la identidad.
+
+Trabaja iluminación, sombras, enfoque y profundidad de campo de manera cinematográfica. El interior inmediato de la cerradura puede quedar oscuro y desenfocado mientras la escena principal permanece correctamente expuesta.
+
+No añadas puertas, objetos, textos o elementos narrativos innecesarios salvo lo imprescindible para justificar físicamente el punto de vista.
+
+Acabado final de fotografía editorial de alta gama, intrigante, elegante y realista, con sensación auténtica de cámara escondida tras una cerradura.
+
+El resultado debe parecer que un fotógrafo colocó realmente la cámara detrás de un ojo de cerradura y captó la escena desde allí, no una fotografía normal con una máscara de cerradura añadida digitalmente.`},
+{id:30,icon:'👜',name:'Desde dentro del bolso · Editorial POV',use:'Sitúa la cámara dentro de un bolso abierto mirando hacia fuera para una perspectiva lifestyle creativa.',text:`Transforma la fotografía que te proporciono en una composición editorial POV tomada desde el interior de un bolso abierto, como si una pequeña cámara estuviera colocada realmente dentro del bolso mirando hacia la persona y hacia el exterior.
+
+Conserva fielmente la identidad de la persona: rostro, facciones, edad aparente, expresión, cabello, tono y textura natural de la piel, cuerpo, proporciones, ropa y accesorios. No rejuvenezcas, embellezcas ni modifiques su fisionomía.
+
+Sitúa virtualmente la cámara en el fondo o zona baja del bolso. Los bordes interiores, forro, cremallera, asas o apertura deben aparecer muy cerca del objetivo y parcialmente desenfocados, creando profundidad y dejando claro que estamos mirando desde dentro de un bolso real.
+
+La persona debe aparecer fuera del bolso de forma natural, mirando hacia su interior, buscando algo, introduciendo una mano o interactuando con él cuando la escena lo permita. Modifica la postura únicamente lo imprescindible y evita reconstruir innecesariamente el rostro.
+
+Puedes mostrar algunos objetos cotidianos coherentes dentro del bolso —por ejemplo móvil, gafas, llaves, neceser o un producto que ya esté presente o que yo indique—, pero utiliza pocos elementos y no conviertas la imagen en un catálogo.
+
+Respeta perspectiva y escala: los objetos muy próximos al objetivo pueden verse grandes y ligeramente desenfocados, mientras la persona y el exterior quedan más alejados. Cuida especialmente manos y dedos si entran en el bolso, evitando anatomía deformada.
+
+Integra correctamente iluminación exterior e interior, sombras, reflejos, profundidad de campo y oclusiones. El interior del bolso debe recibir luz de forma creíble desde su apertura.
+
+Mantén la ropa, accesorios y escenario originales salvo que indique expresamente lo contrario.
+
+No inventes marcas, logotipos ni textos en el bolso o los objetos. Si existen elementos con texto en la fotografía original, consérvalos únicamente cuando puedan reproducirse fielmente.
+
+Acabado final de fotografía editorial lifestyle de alta gama, espontánea, creativa y fotográficamente realista.
+
+El resultado debe parecer que una cámara fue colocada realmente dentro del bolso y captó ese instante al abrirlo, no una fotografía normal rodeada posteriormente por la imagen de un bolso.`}
 
 ];
 const list=document.getElementById('list'),search=document.getElementById('search'),status=document.getElementById('status');async function copyPrompt(text,name,ta){try{await navigator.clipboard.writeText(text);status.textContent='✓ “'+name+'” copiado.'}catch(e){ta.focus();ta.select();document.execCommand('copy');status.textContent='✓ “'+name+'” copiado.'}}function render(q=''){const s=q.trim().toLowerCase(),found=prompts.filter(p=>(p.name+' '+p.use+' '+p.text).toLowerCase().includes(s));list.innerHTML='';found.forEach(p=>{const card=document.createElement('section');card.className='card';card.innerHTML=`<button class="head" type="button"><span class="emoji">${p.icon}</span><span class="meta"><span class="title">${p.id}. ${p.name}</span><span class="use">${p.use}</span></span><span class="chev">⌄</span></button><div class="body hidden"><textarea readonly></textarea><div class="actions"><button class="action primary">Copiar prompt</button></div></div>`;const head=card.querySelector('.head'),body=card.querySelector('.body'),ta=card.querySelector('textarea');ta.value=p.text;head.onclick=()=>{const open=body.classList.toggle('hidden')===false;card.classList.toggle('open',open);head.querySelector('.chev').textContent=open?'⌃':'⌄'};card.querySelector('.action').onclick=()=>copyPrompt(p.text,p.name,ta);list.appendChild(card)});status.textContent=found.length+' prompt'+(found.length===1?'':'s')+' disponible'+(found.length===1?'':'s')+'.'}search.oninput=e=>render(e.target.value);document.getElementById('mother-toggle').onclick=()=>{const b=document.getElementById('mother-body'),t=document.getElementById('mother-toggle'),open=b.classList.toggle('hidden')===false;t.querySelector('.chev').textContent=open?'⌃':'⌄'};document.querySelectorAll('[data-copy-target]').forEach(btn=>btn.onclick=()=>{const ta=document.getElementById(btn.dataset.copyTarget);copyPrompt(ta.value,btn.dataset.copyName,ta)});render();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');</script></body></html>
